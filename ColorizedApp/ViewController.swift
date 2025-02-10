@@ -11,9 +11,13 @@ class ViewController: UIViewController {
 
     // MARK: - IB Outlets
     
+    @IBOutlet var viewStack: UIView!
     @IBOutlet var labelRedColor: UILabel!
     @IBOutlet var labelGreenColor: UILabel!
     @IBOutlet var labelBlueColor: UILabel!
+    @IBOutlet var labelNumberRed: UILabel!
+    @IBOutlet var labelNumberGreen: UILabel!
+    @IBOutlet var labelNumberBlue: UILabel!
     @IBOutlet var sliderRedColor: UISlider!
     @IBOutlet var sliderGreenColor: UISlider!
     @IBOutlet var sliderBlueColor: UISlider!
@@ -22,31 +26,46 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         updateColorLabels()
         updateSliders()
+        viewStack.layer.cornerRadius = 25
     }
     
     // MARK: - IB Actions.
     
     @IBAction func sliderRedColorChange() {
-        let redValue = sliderRedColor.value
-        let newColor = UIColor(red: CGFloat(redValue), green: 0, blue: 0, alpha: 1)
-        view.backgroundColor = newColor
+        updateBackgroundColor()
+        labelNumberRed.text = String(format: "%.2f", sliderRedColor.value)
     }
     
     @IBAction func sliderGreenColorChange() {
-        let greenValue = sliderGreenColor.value
-        let newColor = UIColor(red: 0, green: CGFloat(greenValue), blue: 0, alpha: 1)
-        view.backgroundColor = newColor
+        updateBackgroundColor()
+        labelNumberGreen.text = String(format: "%.2f", sliderGreenColor.value)
     }
     
     @IBAction func sliderBlueColorChange() {
-        let blueValue = sliderBlueColor.value
-        let newColor = UIColor(red: 0, green: 0, blue: CGFloat(blueValue), alpha: 1)
-        view.backgroundColor = newColor
+        updateBackgroundColor()
+        labelNumberBlue.text = String(format: "%.2f", sliderBlueColor.value)
     }
     
     // MARK: - Private Methods.
+    
+    private func updateBackgroundColor() {
+        let redColor = CGFloat(sliderRedColor.value)
+        let greenColor = CGFloat(sliderGreenColor.value)
+        let blueColor = CGFloat(sliderBlueColor.value)
+        
+        let newColor = UIColor(red: redColor, green: greenColor, blue: blueColor, alpha: 1)
+        
+        viewStack.backgroundColor = newColor
+    }
+    
+    private func updateNumbersLabel() {
+        labelNumberRed.text = "1"
+        labelNumberGreen.text = "1"
+        labelNumberBlue.text = "1"
+    }
     
     private func updateColorLabels() {
         labelRedColor.text = "Red"
@@ -55,9 +74,9 @@ class ViewController: UIViewController {
     }
 
     private func updateSliders() {
-        sliderRedColor.value = 1
-        sliderGreenColor.value = 1
-        sliderBlueColor.value = 1
+        sliderRedColor.value = 0
+        sliderGreenColor.value = 0
+        sliderBlueColor.value = 0
         
         sliderRedColor.minimumValue = 0
         sliderGreenColor.minimumValue = 0

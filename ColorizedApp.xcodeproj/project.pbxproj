@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		BDD558682D59771600A465E2 /* Exceptions for "ColorizedApp" folder in "ColorizedApp" target */ = {
+		BDD5589C2D59985800A465E2 /* Exceptions for "ColorizedApp" folder in "ColorizedApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -24,7 +24,7 @@
 		BDD558582D59771300A465E2 /* ColorizedApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				BDD558682D59771600A465E2 /* Exceptions for "ColorizedApp" folder in "ColorizedApp" target */,
+				BDD5589C2D59985800A465E2 /* Exceptions for "ColorizedApp" folder in "ColorizedApp" target */,
 			);
 			path = ColorizedApp;
 			sourceTree = "<group>";
